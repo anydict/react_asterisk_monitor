@@ -16,5 +16,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     } else {
       res.status(404).json({})
     }
+  })    .catch((err) => {
+    res.status(200).json({})
   })
 }

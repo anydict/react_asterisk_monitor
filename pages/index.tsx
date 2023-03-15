@@ -1,4 +1,4 @@
-import { Button, Card, Form, List } from "antd"
+import { Button, Card, List } from "antd"
 import { CheckCircleTwoTone, CloseCircleOutlined } from "@ant-design/icons"
 import React, { useEffect, useState } from "react"
 import Navigation from "../components/navigation"
@@ -101,10 +101,14 @@ export default function Home() {
             renderItem={(item) => (
               <List.Item>
                 <Card title={item.resource}>
-                  <Meta
+                  {item.state == 'online' ? <Meta
                     avatar={<CheckCircleTwoTone twoToneColor="#52c41a" />}
                     title={"Статус: " + item.state}
-                  />
+                  />:<Meta
+                  avatar={<CloseCircleOutlined twoToneColor="red" />}
+                  title={"Статус: " + item.state}
+                />}
+                  
                 </Card>
               </List.Item>
             )}

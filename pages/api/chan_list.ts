@@ -13,4 +13,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     .then((data) => {
       res.status(200).json(data)
     })
+    .catch((err) => {
+      res.status(200).json([])
+    })
 }

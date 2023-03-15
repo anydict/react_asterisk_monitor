@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  return fetch("http://127.0.0.1:8088/ari/endpoints/SIP", {
+ return fetch("http://127.0.0.1:8088/ari/endpoints/SIP", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -12,5 +12,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     .then((res) => res.json())
     .then((data) => {
       res.status(200).json(data)
+    })
+    .catch((err) => {
+      res.status(200).json([])
     })
 }
